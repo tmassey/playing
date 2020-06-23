@@ -1,0 +1,42 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "playing", "playing\playing.csproj", "{4D84EE0B-E014-420F-B867-3547990D8084}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PLaying.Tests", "PLaying.Tests\PLaying.Tests.csproj", "{A5488634-C912-4B0E-BB7C-17B858A39957}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D84EE0B-E014-420F-B867-3547990D8084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D84EE0B-E014-420F-B867-3547990D8084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D84EE0B-E014-420F-B867-3547990D8084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D84EE0B-E014-420F-B867-3547990D8084}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5488634-C912-4B0E-BB7C-17B858A39957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5488634-C912-4B0E-BB7C-17B858A39957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5488634-C912-4B0E-BB7C-17B858A39957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5488634-C912-4B0E-BB7C-17B858A39957}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EAE4245C-AC60-4B12-AEA7-23E77FB35C31}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.TextStylePolicy = $3
+		$1.inheritsSet = null
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.scope = text/x-csharp
+		$3.FileWidth = 80
+		$3.TabsToSpaces = True
+		$3.scope = text/plain
+		$0.StandardHeader = $4
+	EndGlobalSection
+EndGlobal
