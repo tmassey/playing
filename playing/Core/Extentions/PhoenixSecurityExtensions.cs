@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using playing.Authorization.Interfaces;
 using playing.Core.Exceptions;
 
@@ -21,8 +22,9 @@ namespace playing.Core.Extentions
         public static bool RequiresScope(this ControllerBase module, string scope)
         {
             RequiresAuthentication(module);
-            if (CurrentPhoenixUser(module).Scopes.All(s => s != scope)) 
-                throw new HttpUnauthorizedException($"Missing scope {scope}.");
+            if (CurrentPhoenixUser(module).Scopes.All(s => s != scope))
+                module.Unauthorized($"Missing scope {scope}.");
+                //throw new HttpUnauthorizedException($"Missing scope {scope}.");
             return true;
         }
 

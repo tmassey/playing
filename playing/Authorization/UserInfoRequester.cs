@@ -6,11 +6,11 @@ namespace playing.Authorization
 {
     public class UserInfoRequester : IUserInfoRequester
     {
-        private RestSharp.RestClient _client;
+        private RestClient _client;
 
         public UserInfoRequester()
         {
-            //_client = new RestSharp.RestClient(Service.Config.ServiceConfiguration.IdentityServerUri);
+            _client = new RestSharp.RestClient(Service.Config.ServiceConfiguration.IdentityServerUri);
         }
         
         public UserInfoDto Get(string token)

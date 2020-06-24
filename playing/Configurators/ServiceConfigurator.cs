@@ -24,7 +24,7 @@ namespace playing.Configurators
         public string ServiceDescription { get; set; }
         public bool UseAuthentication { get; set; } = false;
         public string IdentityServerUri { get; set; }
-        public Service.TinyIocInjectionDelegate InjectionDelegate { get; set; }
+        public Service.InjectionDelegate InjectionDelegate { get; set; }
 
         public IRegistryServiceConfigurator RegistryConfig {
             get { return _registryServiceConfigurator;  }

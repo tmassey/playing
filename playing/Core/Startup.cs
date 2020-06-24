@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using playing.Authorization;
+using playing.Authorization.Interfaces;
 
 namespace playing.Core
 {
@@ -30,12 +32,13 @@ namespace playing.Core
                     options.GetClaimsFromUserInfoEndpoint = true;
                     options.SaveTokens = true;
                 });
+            
         }
 
         public void Configure(IApplicationBuilder app)
         {
             app.UseAuthentication();
-            app.UseOwin(x => x.UseNancy(opt => opt.Bootstrapper = new Bootstrapper()));
+            app.UseOwin();
         }
     }
 }

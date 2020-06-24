@@ -2,20 +2,22 @@
 using System.ComponentModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using playing.Authorization.Interfaces;
+using playing.Core.Attributes;
 using playing.Core.Extentions;
 
 namespace playing.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
-    public class ValuesController : ControllerBase
+    [Authorize(policy: "AtLeast21")]
+    public class ValuesController : PhoenixBaseController
     {
         // GET api/values
         [HttpGet("/api/Values/")]
         [Description("Get Values")]
         public IEnumerable<string> Get()
         {
-            var user = this.CurrentPhoenixUser();
+            
             return new string[] { "value1", "value2" };
         }
 
@@ -51,6 +53,10 @@ namespace playing.Controllers
         [HttpDelete()]
         [Description("Delete Values")]
         public void Delete(int id)
+        {
+        }
+
+        public ValuesController(IUserManager userManager) : base(userManager)
         {
         }
     }

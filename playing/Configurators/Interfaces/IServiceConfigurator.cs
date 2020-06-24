@@ -12,7 +12,7 @@ namespace playing.Configurators.Interfaces
         string ServiceDescription { get; set; }
         bool UseAuthentication { get; set; }
         string IdentityServerUri { get; set; }
-        Service.TinyIocInjectionDelegate InjectionDelegate { get; set; }
+        Service.InjectionDelegate InjectionDelegate { get; set; }
         //Startup.AppBuilderInjectionDelegate AppBuilderDelegate { get; set; }
         IRegistryServiceConfigurator RegistryConfig { get; set; }
         bool LogToConsole { get; set; }

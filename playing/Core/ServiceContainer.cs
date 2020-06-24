@@ -89,8 +89,8 @@ namespace playing.Core
                     );
                 })
                 .UseStartup<Startup>()
-                .Build()
-                .RunAsService();
+                .Build();
+            //.RunAsService();
         }
 
         private static void SetupLocalhostService()

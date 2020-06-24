@@ -10,7 +10,7 @@ namespace playing.Authorization
 
         public PolicyRequester()
         {
-            //_client = new RestSharp.RestClient(Service.Config.ServiceConfiguration.IdentityServerUri);
+            _client = new RestSharp.RestClient(Service.Config.ServiceConfiguration.IdentityServerUri);
         }
 
         public PolicyDto GetAsync(string userId)

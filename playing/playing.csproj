@@ -10,10 +10,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\playing %25281%2529\playing\Authorization\Interfaces\IPhoenixUser.cs" />
-    <Compile Include="..\..\playing %25281%2529\playing\Authorization\Interfaces\IPolicyRequester.cs" />
-    <Compile Include="..\..\playing %25281%2529\playing\Authorization\Interfaces\IUserInfoRequester.cs" />
-    <Compile Include="..\..\playing %25281%2529\playing\Authorization\Interfaces\IUserManager.cs" />
+    <None Remove="Authorization\SigningCerts\Production.pfx" />
+    <None Remove="Authorization\SigningCerts\Sandbox.pfx" />
+    <None Remove="Authorization\SigningCerts\Staging.pfx" />
+    <None Remove="Authorization\SigningCerts\Testing.pfx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Authorization\SigningCerts\Production.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authorization\SigningCerts\Sandbox.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authorization\SigningCerts\Staging.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authorization\SigningCerts\Testing.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\Interfaces\" />
@@ -25,7 +40,7 @@
     <PackageReference Include="jose-jwt" Version="2.5.0" />
 
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.5" />
-
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="3.1.5" />
 
     <PackageReference Include="Microsoft.AspNetCore.Owin" Version="3.1.5" />
