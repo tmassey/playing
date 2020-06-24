@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,7 @@ namespace playing.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            
             var sb = new StringBuilder();
             var txtWriter = new StringWriter(sb);
             IOpenApiWriter writer = new OpenApiJsonWriter(txtWriter);

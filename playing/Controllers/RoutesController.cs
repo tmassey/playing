@@ -13,6 +13,7 @@ using Microsoft.OpenApi.Writers;
 using Newtonsoft.Json;
 using playing.Core.Routes;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using Endpoint = playing.Controllers.Models.Endpoint;
 
 namespace playing.Controllers
 {

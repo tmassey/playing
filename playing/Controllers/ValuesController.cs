@@ -2,18 +2,20 @@
 using System.ComponentModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using playing.Core.Extentions;
 
 namespace playing.Controllers
 {
     [Route("api/[controller]")]
     [Authorize]
-    public class ValuesController : Controller
+    public class ValuesController : ControllerBase
     {
         // GET api/values
         [HttpGet("/api/Values/")]
         [Description("Get Values")]
         public IEnumerable<string> Get()
         {
+            var user = this.CurrentPhoenixUser();
             return new string[] { "value1", "value2" };
         }
 
