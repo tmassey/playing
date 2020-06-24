@@ -19,7 +19,6 @@ namespace playing.Controllers
 {
     [Route("_routes")]
     [ApiController]
-    [Authorize]
     public class RoutesController : ControllerBase
     {
         // for accessing conventional routes...

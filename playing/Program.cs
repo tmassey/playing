@@ -11,7 +11,7 @@ namespace playing
         {
             Dns.GetHostAddresses(Dns.GetHostName());
             var host = new WebHostBuilder()
-                .UseKestrel()
+                .UseKestrel(options=>options.Listen(IPAddress.Any,17209))
                 .UseContentRoot(Directory.GetCurrentDirectory())                
                 .UseStartup<Startup>()
                 .Build();
