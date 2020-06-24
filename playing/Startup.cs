@@ -4,7 +4,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.OpenApi.Models;
 using playing.Controllers;
 using playing.Core.Routes;
 
@@ -25,43 +30,85 @@ namespace playing
 
         public IConfigurationRoot Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore()
-                .AddAuthorization();
+            ConfigureDocumentation(services);
+            services.AddMvc(opt=>opt.EnableEndpointRouting=false);
             services.AddWebEncoders();
             services.AddDataProtection();
+            ConfigureAuthentication(services);
+            services.AddControllers();
+        }
 
-            services.AddAuthentication(config =>
+        private static void ConfigureAuthentication(IServiceCollection services)
+        {
+            services.AddAuthentication("Bearer")
+                .AddJwtBearer("Bearer", options =>
                 {
-                    config.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                    config.DefaultChallengeScheme = "oidc";
-                })
-                .AddCookie();
-                //.AddOpenIdConnect("oidc", options =>
-                //{
-                //    options.SignInScheme = "Cookies";
-                //    options.Authority = Service.Config.ServiceConfiguration.IdentityServerUri;
-                //    options.RequireHttpsMetadata = true;
-                //    options.ClientId = Service.Config.ServiceConfiguration.IdentityClient;
-                //    options.ClientSecret = Service.Config.ServiceConfiguration.IdentityClientSecret;
-                //    options.ResponseType = "code id_token";
-                //    options.GetClaimsFromUserInfoEndpoint = true;
-                //    options.SaveTokens = true;
-                //});
-            
-            services.AddTransient<IRoutesLogic, RoutesLogic>();
+                    options.Authority = "https://identity.sandbox.samaritanministries.org/";
+                    options.RequireHttpsMetadata = false;
+                    //options.Events.OnTokenValidated = OnTokenValidated;
+                    options.Audience = "api1";
+                });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("PLayingPolicy", policy =>
+                {
+                    policy.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme);
+                    policy.RequireAuthenticatedUser();
+                    // custom requirements
+                });
+            });
+        }
+
+        private static void ConfigureDocumentation(IServiceCollection services)
+        {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "My API", Version = "v1"});
+                c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                {
+                    Type = SecuritySchemeType.OAuth2,
+                    Flows = new OpenApiOAuthFlows
+                    {
+                        Implicit = new OpenApiOAuthFlow
+                        {
+                            AuthorizationUrl = new Uri("https://identity.sandbox.samaritanministries.org/connect/authorize",
+                                UriKind.Absolute),
+                            Scopes = new Dictionary<string, string>
+                            {
+                                {"readAccess", "Access read operations"},
+                                {"writeAccess", "Access write operations"}
+                            }
+                        }
+                    }
+                });
+            });
+        }
+
+        private Task OnTokenValidated(TokenValidatedContext arg)
+        {
+            var tmp = arg.Principal;
+            return Task.CompletedTask;
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             LoggerFactory.Create(Opt => Opt.AddConsole());
+            app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
+            app.UseSwagger();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+            //app.UseMvc();
            
-
-            app.UseMvc();
-            
         }
     }
 }
