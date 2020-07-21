@@ -4,7 +4,7 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "playing", "playing\playing.csproj", "{4D84EE0B-E014-420F-B867-3547990D8084}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PLaying.Tests", "PLaying.Tests\PLaying.Tests.csproj", "{A5488634-C912-4B0E-BB7C-17B858A39957}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phoenix.Api.Core", "Phoenix.Api.Core\Phoenix.Api.Core.csproj", "{AB567FDE-83BF-474C-8649-C85B6C81FFBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,10 +16,10 @@ Global
 		{4D84EE0B-E014-420F-B867-3547990D8084}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D84EE0B-E014-420F-B867-3547990D8084}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D84EE0B-E014-420F-B867-3547990D8084}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A5488634-C912-4B0E-BB7C-17B858A39957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5488634-C912-4B0E-BB7C-17B858A39957}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5488634-C912-4B0E-BB7C-17B858A39957}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5488634-C912-4B0E-BB7C-17B858A39957}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB567FDE-83BF-474C-8649-C85B6C81FFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB567FDE-83BF-474C-8649-C85B6C81FFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB567FDE-83BF-474C-8649-C85B6C81FFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB567FDE-83BF-474C-8649-C85B6C81FFBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

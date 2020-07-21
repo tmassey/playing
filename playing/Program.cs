@@ -1,7 +1,7 @@
-﻿using System.IO;
-using System.Net;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
+﻿using System.Collections.Generic;
+using Phoenix.Api.Core;
+using Phoenix.Api.Core.Bootstrappers;
+using playing.Bootstrappers;
 
 namespace playing
 {
@@ -9,14 +9,7 @@ namespace playing
     {
         public static void Main(string[] args)
         {
-            Dns.GetHostAddresses(Dns.GetHostName());
-            var host = new WebHostBuilder()
-                .UseKestrel(options=>options.Listen(IPAddress.Any,17209))
-                .UseContentRoot(Directory.GetCurrentDirectory())                
-                .UseStartup<Startup>()
-                .Build();
-
-            host.Run();
+            Service.Start(new List<IBootstrapper>{new MyBootstrapper()});
         }
     }
 }

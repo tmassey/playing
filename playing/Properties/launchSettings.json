@@ -6,12 +6,16 @@
   "profiles": {
     "playing": {
       "commandName": "Project",
-      "launchBrowser": false,
       "launchUrl": "_routes",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "http://localhost:17209/"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/_routes",
+      "publishAllPorts": true
     }
   }
 }
