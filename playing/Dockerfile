@@ -8,8 +8,8 @@ COPY . .
 WORKDIR /src/playing
 
 FROM build AS publish
-WORKDIR /src/playing/playing
-RUN dotnet publish playing.csproj --runtime linux-arm --self-contained false --framework netcoreapp3.1 -c Release -o /app/publish
+WORKDIR /src/playing
+RUN dotnet publish --runtime linux-arm --self-contained false --framework netcoreapp3.1 -c Release -o /app/publish
 
 FROM publish AS final
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster-arm32v7
