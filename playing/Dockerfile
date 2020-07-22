@@ -5,9 +5,7 @@ EXPOSE 17209
 FROM base AS build
 WORKDIR /src
 COPY . .
-RUN dotnet restore "playing/playing.csproj"
 WORKDIR /src/playing
-RUN dotnet build "playing.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish --runtime linux-arm --self-contained false --framework netcoreapp3.1 -c Release -o /app/publish
