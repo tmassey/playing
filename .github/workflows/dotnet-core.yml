@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}          
           # Docker repository to tag the image with
           repository: tmassey/playing                  
-          path: /playing
+          path: /
           # Path to the Dockerfile (Default is '{path}/Dockerfile')
-          dockerfile: Dockerfile          
+          dockerfile: /playing/Dockerfile          
           
