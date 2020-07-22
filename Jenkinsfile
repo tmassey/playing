@@ -8,12 +8,8 @@ pipeline {
   stages {
     stage('docker publish') {
       steps {
-        timestamps() {
-          sleep 1
-        }
-
+        sleep 1
       }
     }
-
   }
 }
