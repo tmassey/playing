@@ -18,5 +18,5 @@ jobs:
           name: playing
           username: ${{ secrets.DOCKER_HUB_USER }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-          dockerfile path: /playing/Dockerfile
+          dockerfile path: /playing/playing/Dockerfile
     
