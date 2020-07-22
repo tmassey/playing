@@ -1,0 +1,21 @@
+name: Deploy to docker
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1      
+      - name: Dockerize        
+        uses: manusa/actions-publish-docker@v1.1.1
+        with:
+          name: tmassey/playing
+          username: ${{ secrets.DOCKER_HUB_USER }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+    
