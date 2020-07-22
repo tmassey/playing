@@ -8,6 +8,7 @@ COPY . .
 WORKDIR /src/playing
 
 FROM build AS publish
+WORKDIR /src/playing
 RUN dotnet publish --runtime linux-arm --self-contained false --framework netcoreapp3.1 -c Release -o /app/publish
 
 FROM publish AS final
