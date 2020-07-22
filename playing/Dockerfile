@@ -4,10 +4,9 @@ EXPOSE 17209
 
 FROM base AS build
 WORKDIR /src
-COPY ["playing/playing.csproj", "playing/"]
-RUN dotnet restore "playing/playing.csproj"
 COPY . .
-WORKDIR "/src/playing"
+RUN dotnet restore "playing/playing.csproj"
+WORKDIR /src/playing
 RUN dotnet build "playing.csproj" -c Release -o /app/build
 
 FROM build AS publish
