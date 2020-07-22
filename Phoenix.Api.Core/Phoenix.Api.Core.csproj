@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -58,31 +58,6 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
-  <ItemGroup>
-    <None Remove="Authorization\HttpsCerts\star-smchcn.pfx" />
-    <None Remove="Authorization\SigningCerts\Production.pfx" />
-    <None Remove="Authorization\SigningCerts\Sandbox.pfx" />
-    <None Remove="Authorization\SigningCerts\Staging.pfx" />
-    <None Remove="Authorization\SigningCerts\Testing.pfx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Authorization\HttpsCerts\star-smchcn.pfx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Authorization\SigningCerts\Production.pfx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Authorization\SigningCerts\Sandbox.pfx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Authorization\SigningCerts\Staging.pfx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Authorization\SigningCerts\Testing.pfx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers\Interfaces\" />
