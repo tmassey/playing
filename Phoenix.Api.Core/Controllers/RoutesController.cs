@@ -9,7 +9,7 @@ namespace Phoenix.Api.Core.Controllers
 {
     [Route("_routes")]
     [ApiController]
-    [ApiExplorerSettings(IgnoreApi = true)]
+    //[ApiExplorerSettings(IgnoreApi = true)]
     public class RoutesController : PhoenixBaseController
     {
         private readonly IActionDescriptorCollectionProvider _actionDescriptorCollectionProvider;

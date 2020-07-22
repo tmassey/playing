@@ -12,7 +12,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Authorization\HttpsCerts\star-smchcn.pfx" />
     <None Remove="Authorization\SigningCerts\Production.pfx" />
     <None Remove="Authorization\SigningCerts\Sandbox.pfx" />
     <None Remove="Authorization\SigningCerts\Staging.pfx" />
@@ -20,9 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Authorization\HttpsCerts\star-smchcn.pfx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Authorization\SigningCerts\Production.pfx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -62,7 +58,6 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="RabbitMQ.Client" Version="5.1.2" />
-    <PackageReference Include="RestSharp" Version="106.11.4" />
     <PackageReference Include="Serilog.Sinks.RabbitMQ" Version="3.0.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="5.5.1" />
